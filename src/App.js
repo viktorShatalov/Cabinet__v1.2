@@ -30,7 +30,9 @@ function App() {
             </Link>
           </li>
         </div>
-        <button onClick={handleLogoutClick}>{!login ? "Войти" : "Выйти"}</button>
+        <button onClick={handleLogoutClick}>
+          {!login ? "Войти" : "Выйти"}
+        </button>
       </nav>
       {login ? (
         <div className="container mt-3">
@@ -41,7 +43,7 @@ function App() {
           </Switch>
         </div>
       ) : (
-        <span className="container">Авторизируйтесь</span>
+        <span className="autorized">Авторизируйтесь</span>
       )}
     </div>
   );

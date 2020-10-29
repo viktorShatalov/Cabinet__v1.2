@@ -8,6 +8,7 @@ const AddTutorial = () => {
     country: "",
     position: "",
     id: null,
+    title: "",
     published: false,
   };
   const [tutorial, setTutorial] = useState(initialTutorialState);
@@ -19,9 +20,10 @@ const AddTutorial = () => {
   };
 
   const saveTutorial = () => {
-    let data = {
+    const data = {
       title: tutorial.title,
       country: tutorial.country,
+      position: tutorial.position,
     };
 
     TutorialDataService.create(data)
@@ -30,6 +32,7 @@ const AddTutorial = () => {
           id: response.data.id,
           title: response.data.title,
           country: response.data.country,
+          position: tutorial.position,
           published: response.data.published,
         });
         setSubmitted(true);
@@ -55,7 +58,9 @@ const AddTutorial = () => {
           </button>
           <br></br>
           <br></br>
-          <Link to={"/tutorials"} className="btn btn-success">Вернуться</Link>
+          <Link to={"/tutorials"} className="btn btn-success">
+            Вернуться
+          </Link>
         </div>
       ) : (
         <div>
@@ -82,6 +87,19 @@ const AddTutorial = () => {
               value={tutorial.country}
               onChange={handleInputChange}
               name="country"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="position">Должность</label>
+            <input
+              type="text"
+              className="form-control"
+              id="position"
+              required
+              value={tutorial.position}
+              onChange={handleInputChange}
+              name="position"
             />
           </div>
 

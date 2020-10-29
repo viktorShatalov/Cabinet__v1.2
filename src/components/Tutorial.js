@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TutorialDataService from "../services/TutorialService";
+import { Link } from "react-router-dom";
 
 const Tutorial = (props) => {
   const initialTutorialState = {
@@ -7,6 +8,7 @@ const Tutorial = (props) => {
     country: "",
     position: "",
     id: null,
+    title: "",
     published: false,
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -16,7 +18,7 @@ const Tutorial = (props) => {
     TutorialDataService.get(id)
       .then((response) => {
         setCurrentTutorial(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -54,7 +56,6 @@ const Tutorial = (props) => {
     TutorialDataService.update(currentTutorial.id, currentTutorial)
       .then((response) => {
         console.log(response.data);
-        setMessage("Обновлено!!!");
       })
       .catch((e) => {
         console.log(e);
@@ -65,7 +66,7 @@ const Tutorial = (props) => {
     TutorialDataService.remove(currentTutorial.id)
       .then((response) => {
         console.log(response.data);
-        props.history.push("/contacts");
+        props.history.push("/tutorials");
       })
       .catch((e) => {
         console.log(e);
@@ -125,17 +126,24 @@ const Tutorial = (props) => {
             </button>
           )}
 
-          <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
-            Удалить
-          </button>
+          <Link to="/tutorials">
+            <button
+              className="badge badge-danger mr-2"
+              onClick={deleteTutorial}
+            >
+              Удалить
+            </button>
+          </Link>
 
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateTutorial}
-          >
-            Редактировать
-          </button>
+          <Link to="/tutorials">
+            <button
+              type="submit"
+              className="badge badge-success"
+              onClick={updateTutorial}
+            >
+              Редактировать
+            </button>
+          </Link>
           <p>{message}</p>
         </div>
       ) : (

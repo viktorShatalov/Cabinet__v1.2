@@ -1,34 +1,27 @@
 {
   "contacts": [
     {
+      "id": 8,
       "title": "asd",
-      "country": "asd",
-      "position": "asd",
-      "id": 1
+      "published": true
     },
     {
-      "title": "asd",
-      "country": "asd",
-      "position": "asd",
-      "id": 2
+      "title": "2",
+      "country": "1",
+      "position": "3",
+      "id": 9
     },
     {
-      "title": "asd",
-      "country": "asd",
-      "position": "asd",
-      "id": 3
+      "title": "2",
+      "country": "1",
+      "position": "3",
+      "id": 19
     },
     {
-      "title": "asd",
-      "country": "asd",
-      "position": "asd",
-      "id": 4
-    },
-    {
-      "title": "asd",
-      "country": "asd",
-      "position": "asd",
-      "id": 5
+      "title": "123456",
+      "country": "1234",
+      "position": "123",
+      "id": 20
     }
   ]
 }
